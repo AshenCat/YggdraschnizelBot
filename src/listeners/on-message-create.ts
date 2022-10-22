@@ -215,5 +215,14 @@ export const onMessageCreate = (client: Client) => {
                 prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
             }
         }
+
+        if (content === 'init_bulletin') {
+            const embed = await updateBulletin();
+            const bulletinChannel = message.guild?.channels.cache.get(BULLETIN_CHANNEL_ID) || (await message.guild?.channels.fetch(BULLETIN_CHANNEL_ID))
+            if (bulletinChannel?.isTextBased()) {
+                (<TextChannel>bulletinChannel).send({ embeds: [embed] })
+            }
+            
+        }
     });
 };
