@@ -2,7 +2,7 @@ import { EmbedBuilder } from "discord.js";
 import ValheimUser from "./db/models/valheimUser.model";
 
 export const updateBulletin = async () => {
-    const players = await ValheimUser.find({}).sort({lastLogin: -1});
+    const players = await ValheimUser.find({}).sort({status: -1, lastLogin: -1});
 
     // const descriptionString = [];
 
