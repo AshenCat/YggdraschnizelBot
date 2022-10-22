@@ -22,4 +22,3 @@ onInteractionCreate(client);
 onUserJoin(client);
 
 client.login(TOKEN);
-// CLIENT SECRET NWxQXoNTmURhpFBs0YcekTEsDMzpWRyn

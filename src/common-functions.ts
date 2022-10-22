@@ -2,7 +2,7 @@ import { EmbedBuilder } from "discord.js";
 import ValheimUser from "./db/models/valheimUser.model";
 
 export const updateBulletin = async () => {
-    const players = await ValheimUser.find({}).sort({lastLogin: 1});
+    const players = await ValheimUser.find({}).sort({lastLogin: -1});
 
     // const descriptionString = [];
 
@@ -17,7 +17,7 @@ export const updateBulletin = async () => {
 
         names.push(player.IGN)
         statuses.push(player.status === 'online' ? '🟢 ONLINE' : '⚫ OFFLINE' )
-        lastLogins.push(`${(player.lastLogin?.getFullYear() || 1) > 2000 ? `<t:${unixTimestamp}:R>` : 'NULL'}`)
+        lastLogins.push(player.status === 'online' ? 'now' : `${(player.lastLogin?.getFullYear() || 1) > 2000 ? `<t:${unixTimestamp}:R>` : 'NULL'}`)
         // descriptionString.push(`${ player.status === 'online' ? '🟢 ' : '⚫ '}` + player.IGN);
         
         // descriptionString.push(`${player.status === 'online' ? 'ONLINE' : 'OFFLINE'}  ·  since ${(player.lastLogin?.getFullYear() || 1) > 2000 ? `<t:${unixTimestamp}:R>` : 'NULL'}`);

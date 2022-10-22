@@ -37,7 +37,7 @@ export const onMessageCreate = (client: Client) => {
                     }
 
                     const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                    prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                    prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
                 }
                 return;
             }
@@ -66,7 +66,7 @@ export const onMessageCreate = (client: Client) => {
                     }
 
                     const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                    prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                    prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
                 }
                 return;
             }
@@ -90,7 +90,7 @@ export const onMessageCreate = (client: Client) => {
                     }
 
                     const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                    prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                    prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
                 }
                 return;
             }
@@ -111,7 +111,7 @@ export const onMessageCreate = (client: Client) => {
                     }
 
                     const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                    prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                    prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
                 }
                 return;
             }
@@ -140,7 +140,7 @@ export const onMessageCreate = (client: Client) => {
                     }
 
                     const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                    prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                    prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
                 }
                 return;
             }
@@ -161,7 +161,7 @@ export const onMessageCreate = (client: Client) => {
                         }
 
                         const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                        prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                        prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
                     }
                     return;
                 }
@@ -175,7 +175,7 @@ export const onMessageCreate = (client: Client) => {
                         }
 
                         const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                        prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                        prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
                     }
                     return;
                 }
@@ -212,7 +212,7 @@ export const onMessageCreate = (client: Client) => {
                 }
 
                 const unixTimestamp = Math.floor(new Date().getTime() / 1000)
-                prevMessage.edit({ embeds: [embed], content: `Last edited: <t:${unixTimestamp}:R>` })
+                prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
             }
         }
 
