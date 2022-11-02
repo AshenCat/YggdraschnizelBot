@@ -14,7 +14,6 @@ const valheimUserSchema = new Schema(
     {
         IGN: {
             type: String,
-            trime: true
         },
         deaths: String,
         status: {

@@ -18,7 +18,7 @@ export const onMessageCreate = (client: Client) => {
                 const player = await ValheimUser.findOne({ IGN: valheimPlayerName });
                 if (!player) {
                     await ValheimUser.create({
-                        IGN: valheimPlayerName.trim(),
+                        IGN: valheimPlayerName,
                         deaths: 0,
                         status: 'online',
                         lastLogin: Date.now()
@@ -47,7 +47,7 @@ export const onMessageCreate = (client: Client) => {
                 const player = await ValheimUser.findOne({ IGN: valheimPlayerName });
                 if (!player) {
                     await ValheimUser.create({
-                        IGN: valheimPlayerName.trim(),
+                        IGN: valheimPlayerName,
                         deaths: 0,
                         status: 'offline',
                         lastLogin: Date.now()
@@ -76,7 +76,7 @@ export const onMessageCreate = (client: Client) => {
                 const player = await ValheimUser.findOne({ IGN: valheimPlayerName });
                 if (!player) {
                     await ValheimUser.create({
-                        IGN: valheimPlayerName.trim(),
+                        IGN: valheimPlayerName,
                         deaths: 0,
                         status: 'online',
                     })
@@ -98,7 +98,7 @@ export const onMessageCreate = (client: Client) => {
             if (content.includes(`it's their first time on the server!`)) {
                 const valheimPlayerName = content.replace('Welcome ', '').replace(`, it's their first time on the server!`, '');
                 await ValheimUser.create({
-                    IGN: valheimPlayerName.trim(),
+                    IGN: valheimPlayerName,
                     deaths: 0,
                     status: 'online',
                 })
@@ -121,7 +121,7 @@ export const onMessageCreate = (client: Client) => {
                 const player = await ValheimUser.findOne({ IGN: valheimPlayerName });
                 if (!player) {
                     await ValheimUser.create({
-                        IGN: valheimPlayerName.trim(),
+                        IGN: valheimPlayerName,
                         deaths: 0,
                         status: 'online',
                         lastLogin: Date.now()
