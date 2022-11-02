@@ -145,11 +145,11 @@ export const onMessageCreate = (client: Client) => {
                 return;
             }
 
-            if (['Server is stopping.', 'Server has started!'].includes(content)) {
+            if (['Server is stopping.', 'Server has stopped!', 'Server has started!'].includes(content)) {
                 await ValheimUser.updateMany({ status: 'online' }, { status: 'offline', lastLogin: Date.now() });
                 console.log('Server has stopped.');
 
-                if (content === 'Server is stopping.') {
+                if (content === 'Server is stopping.' || content === 'Server has stopped!') {
                     const embed = new EmbedBuilder()
                         .setTitle('INFO')
                         .setDescription('Server is currently under maintenance')
@@ -222,7 +222,26 @@ export const onMessageCreate = (client: Client) => {
             if (bulletinChannel?.isTextBased()) {
                 (<TextChannel>bulletinChannel).send({ embeds: [embed] })
             }
-            
+
+        }
+
+        if (content === 'set_under_maintenance') {
+            const embed = new EmbedBuilder()
+                .setTitle('INFO')
+                .setDescription('Server is currently under maintenance')
+
+            const bulletinChannel = message.guild?.channels.cache.get(BULLETIN_CHANNEL_ID) || (await message.guild?.channels.fetch(BULLETIN_CHANNEL_ID))
+
+            if (bulletinChannel?.isTextBased()) {
+                // (<TextChannel>bulletinChannel).send({embeds: [embed]})
+                const prevMessage = await bulletinChannel.messages.fetch({ message: BULLETIN_MESSAGE_ID });
+                if (!prevMessage) {
+                    (<TextChannel>bulletinChannel).send({ embeds: [embed] })
+                }
+
+                const unixTimestamp = Math.floor(new Date().getTime() / 1000)
+                prevMessage.edit({ embeds: [embed], content: `Last updated: <t:${unixTimestamp}:R>` })
+            }
         }
     });
 };
