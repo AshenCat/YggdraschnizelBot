@@ -14,7 +14,7 @@ export const onMessageCreate = (client: Client) => {
             const bulletinChannel = message.guild?.channels.cache.get(BULLETIN_CHANNEL_ID) || (await message.guild?.channels.fetch(BULLETIN_CHANNEL_ID));
 
             if (content.includes(' has joined.')) {
-                const valheimPlayerName = content.replace(' has joined.', '');
+                const valheimPlayerName = content.split(' has joined.')[0];
                 const player = await ValheimUser.findOne({ IGN: valheimPlayerName });
                 if (!player) {
                     await ValheimUser.create({
@@ -43,7 +43,8 @@ export const onMessageCreate = (client: Client) => {
             }
 
             if (content.includes(' has left.')) {
-                const valheimPlayerName = content.replace(' has left.', '');
+                // const valheimPlayerName = content.replace(' has left.', '');
+                const valheimPlayerName = content.split(' has left.')[0];
                 const player = await ValheimUser.findOne({ IGN: valheimPlayerName });
                 if (!player) {
                     await ValheimUser.create({
